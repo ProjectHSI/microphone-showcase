@@ -16,45 +16,46 @@ function clearColumn (column: number) {
         led.plotBrightness(column, j, 0)
     }
 }
+let divisor = 5
 basic.forever(function () {
     scroll()
-    if (input.soundLevel() / 51 >= 1) {
+    if (input.soundLevel() / (255 / divisor) >= 1) {
         led.plotBrightness(4, 4, 255)
     } else {
-        led.plotBrightness(4, 4, input.soundLevel() % 51 * 5)
+        led.plotBrightness(4, 4, input.soundLevel() % (255 / divisor) * divisor)
     }
-    if (input.soundLevel() / 51 >= 2) {
+    if (input.soundLevel() / (255 / divisor) >= 2) {
         led.plotBrightness(4, 3, 255)
     } else {
-        if (input.soundLevel() > 51) {
-            led.plotBrightness(4, 3, input.soundLevel() % 51 * 5)
+        if (input.soundLevel() > 255 / divisor * 1) {
+            led.plotBrightness(4, 3, input.soundLevel() % (255 / divisor) * 5)
         } else {
             led.plotBrightness(4, 3, 0)
         }
     }
-    if (input.soundLevel() / 51 >= 3) {
+    if (input.soundLevel() / (255 / divisor) >= 3) {
         led.plotBrightness(4, 2, 255)
     } else {
-        if (input.soundLevel() > 102) {
-            led.plotBrightness(4, 2, input.soundLevel() % 51 * 5)
+        if (input.soundLevel() > 255 / divisor * 2) {
+            led.plotBrightness(4, 2, input.soundLevel() % (255 / divisor) * 5)
         } else {
             led.plotBrightness(4, 2, 0)
         }
     }
-    if (input.soundLevel() / 51 >= 4) {
+    if (input.soundLevel() / (255 / divisor) >= 4) {
         led.plotBrightness(4, 1, 255)
     } else {
-        if (input.soundLevel() > 153) {
-            led.plotBrightness(4, 1, input.soundLevel() % 51 * 5)
+        if (input.soundLevel() > 255 / divisor * 3) {
+            led.plotBrightness(4, 1, input.soundLevel() % (255 / divisor) * 5)
         } else {
             led.plotBrightness(4, 1, 0)
         }
     }
-    if (input.soundLevel() / 51 >= 5) {
+    if (input.soundLevel() / (255 / divisor) >= 5) {
         led.plotBrightness(4, 0, 255)
     } else {
-        if (input.soundLevel() > 204) {
-            led.plotBrightness(4, 0, input.soundLevel() % 51 * 5)
+        if (input.soundLevel() > 255 / divisor * 4) {
+            led.plotBrightness(4, 0, input.soundLevel() % (255 / divisor) * 5)
         } else {
             led.plotBrightness(4, 0, 0)
         }
